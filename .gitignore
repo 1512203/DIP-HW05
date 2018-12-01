@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# Build folder
+cmake-build-debug/*
+
+# CLion
+.idea
+*.iml
+workspace.xml
+vcs.xml
