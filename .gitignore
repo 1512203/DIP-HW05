@@ -40,3 +40,6 @@ build/*
 *.iml
 workspace.xml
 vcs.xml
+
+# Resources files
+resources/*
