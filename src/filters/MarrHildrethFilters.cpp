@@ -25,7 +25,12 @@ Mat MarrHildrethFilters::applyFilter(Mat img, argv_t kwargs) {
                 double p = deltaSquare[y - u][x - v] * deltaSquare[y + u][x + v];
                 double s = fabs(deltaSquare[y - u][x - v] - deltaSquare[y + u][x + v]);
                 if (isLessDouble(p, 0.0) && isLessDouble(threshold * maxDist, s)) {
-                    result.at<uchar>(y, x) = 255;
+                    if (isEqualDouble(threshold, -1)) {
+                        double val = 255.0 * (fabs(deltaSquare[y][x]) + 1) / max(fabs(maxV), fabs(minV));
+                        result.at<uchar>(y, x) = saturate_cast<uchar>(val);
+                    } else {
+                        result.at<uchar>(y, x) = 255;
+                    }
                     break;
                 }
             }

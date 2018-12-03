@@ -2,6 +2,8 @@
 
 
 Mat GradientFilters::applyFilter(Mat img, argv_t kwargs) {
+    double threshold = stof(kwargs["threshold"]);
+
     Mat result = Mat::zeros(img.size(), img.type());
 
     vector< vector<double> > fx = this->calculateFx(img);
@@ -19,8 +21,16 @@ Mat GradientFilters::applyFilter(Mat img, argv_t kwargs) {
 
     for (int y = 0; y < img.rows; ++y) {
         for (int x = 0; x < img.cols; ++x) {
-            double v = (g[y][x] - minVal + 1) / (maxVal - minVal + 1) * 255;
-            result.at<uchar>(y, x) = saturate_cast<u_char>(v);
+            double v = 255.0 * (g[y][x] - minVal + 1) / (maxVal - minVal + 1);
+            if (isEqualDouble(threshold, -1)) {
+                result.at<uchar>(y, x) = saturate_cast<uchar>(v);
+            } else {
+                if (v > threshold * 255) {
+                    result.at<uchar>(y, x) = 255;
+                } else {
+                    result.at<uchar>(y, x) = 0;
+                }
+            }
         }
     }
 
