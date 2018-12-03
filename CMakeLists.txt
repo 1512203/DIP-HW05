@@ -33,10 +33,18 @@ set( PROJECT_SOURCES
         ${SOURCE_FILTERS_DIR}/RobertsFilter.cpp
         ${SOURCE_FILTERS_DIR}/RobertsFilter.h
         ${SOURCE_FILTERS_DIR}/ScharrFilter.cpp
-        ${SOURCE_FILTERS_DIR}/ScharrFilter.h src/filters/MarrHildrethFilters.cpp src/filters/MarrHildrethFilters.h src/filters/LaplaceFilter.cpp src/filters/LaplaceFilter.h src/filters/LoGFilter.cpp src/filters/LoGFilter.h)
+        ${SOURCE_FILTERS_DIR}/ScharrFilter.h
+        ${SOURCE_FILTERS_DIR}/MarrHildrethFilters.cpp
+        ${SOURCE_FILTERS_DIR}/MarrHildrethFilters.h
+        ${SOURCE_FILTERS_DIR}/LaplaceFilter.cpp
+        ${SOURCE_FILTERS_DIR}/LaplaceFilter.h
+        ${SOURCE_FILTERS_DIR}/LoGFilter.cpp
+        ${SOURCE_FILTERS_DIR}/LoGFilter.h )
 
 # The main program
-add_executable( DIP_HW05 ${SOURCE_DIR}/main.cpp ${PROJECT_SOURCES} )
+add_executable( DIP_HW05
+        ${SOURCE_DIR}/main.cpp
+        ${PROJECT_SOURCES} )
 
 # Add link libraries
 target_link_libraries( DIP_HW05 ${OpenCV_LIBS} )
