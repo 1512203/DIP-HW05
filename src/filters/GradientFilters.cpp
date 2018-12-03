@@ -1,7 +1,7 @@
 #include "GradientFilters.h"
 
 
-Mat GradientFilters::applyFilter(Mat img) {
+Mat GradientFilters::applyFilter(Mat img, argv_t kwargs) {
     Mat result = Mat::zeros(img.size(), img.type());
 
     vector< vector<double> > fx = this->calculateFx(img);

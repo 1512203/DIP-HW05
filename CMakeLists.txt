@@ -14,6 +14,7 @@ set( CMAKE_CXX_EXTENSIONS OFF )
 
 # Project sources
 set( SOURCE_DIR src )
+set( SOURCE_FILTERS_DIR src/filters )
 set( PROJECT_SOURCES
         ${SOURCE_DIR}/common.h
         ${SOURCE_DIR}/common.cpp
@@ -21,13 +22,18 @@ set( PROJECT_SOURCES
         ${SOURCE_DIR}/BaseProcessor.cpp
         ${SOURCE_DIR}/EdgeDetector.cpp
         ${SOURCE_DIR}/EdgeDetector.h
-        ${SOURCE_DIR}/filters/BaseFilters.cpp
-        ${SOURCE_DIR}/filters/BaseFilters.h
-        ${SOURCE_DIR}/filters/GradientFilters.cpp
-        ${SOURCE_DIR}/filters/GradientFilters.h
-        ${SOURCE_DIR}/filters/SobelFilter.cpp
-        ${SOURCE_DIR}/filters/SobelFilter.h
-        src/filters/PrewittFilter.cpp src/filters/PrewittFilter.h src/filters/RobertsFilter.cpp src/filters/RobertsFilter.h src/filters/ScharrFilter.cpp src/filters/ScharrFilter.h)
+        ${SOURCE_FILTERS_DIR}/BaseFilters.cpp
+        ${SOURCE_FILTERS_DIR}/BaseFilters.h
+        ${SOURCE_FILTERS_DIR}/GradientFilters.cpp
+        ${SOURCE_FILTERS_DIR}/GradientFilters.h
+        ${SOURCE_FILTERS_DIR}/SobelFilter.cpp
+        ${SOURCE_FILTERS_DIR}/SobelFilter.h
+        ${SOURCE_FILTERS_DIR}/PrewittFilter.cpp
+        ${SOURCE_FILTERS_DIR}/PrewittFilter.h
+        ${SOURCE_FILTERS_DIR}/RobertsFilter.cpp
+        ${SOURCE_FILTERS_DIR}/RobertsFilter.h
+        ${SOURCE_FILTERS_DIR}/ScharrFilter.cpp
+        ${SOURCE_FILTERS_DIR}/ScharrFilter.h src/filters/MarrHildrethFilters.cpp src/filters/MarrHildrethFilters.h src/filters/LaplaceFilter.cpp src/filters/LaplaceFilter.h src/filters/LoGFilter.cpp src/filters/LoGFilter.h)
 
 # The main program
 add_executable( DIP_HW05 ${SOURCE_DIR}/main.cpp ${PROJECT_SOURCES} )

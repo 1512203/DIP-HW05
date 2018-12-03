@@ -38,6 +38,7 @@ using std::vector;
 using std::max;
 using std::min;
 using std::stof;
+using std::stoi;
 
 
 /* Include elements in namespace cv */

@@ -11,7 +11,7 @@ protected:
     virtual vector< vector<double> > calculateFx(Mat img) = 0;
     virtual vector< vector<double> > calculateFy(Mat img) = 0;
 public:
-    Mat applyFilter(Mat img);
+    Mat applyFilter(Mat img, argv_t kwargs) override;
 };
 
 

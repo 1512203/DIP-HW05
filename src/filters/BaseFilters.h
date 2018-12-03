@@ -8,7 +8,7 @@ class BaseFilters {
 private:
 protected:
 public:
-    virtual Mat applyFilter(Mat img) = 0;
+    virtual Mat applyFilter(Mat img, argv_t kwargs) = 0;
 };
 
 #endif //DIP_HW05_BASEFILTERS_H

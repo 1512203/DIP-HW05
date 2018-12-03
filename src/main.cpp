@@ -28,10 +28,12 @@ int main(int argc, char* argv[]) {
         //
     }
     else if (command == COMMAND_LAPLACIAN) {
-        //
+        kwargs["threshold"] = (argc >= 4) ? argv[3] : "0";
     }
     else if (command == COMMAND_LOG) {
-        //
+        kwargs["kernel_size"] = (argc >= 4) ? argv[3] : "5";
+        kwargs["sigma"] = (argc >= 5) ? argv[4] : "1.4";
+        kwargs["threshold"] = (argc >= 6) ? argv[5] : "0";
     }
     else {
         cerr << ERROR_MESS_INVALID_COMMANDS << endl;

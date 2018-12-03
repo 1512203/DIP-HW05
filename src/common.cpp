@@ -44,12 +44,11 @@ vector<vector<double>> convolution(Mat img, vector< vector<double> > filter) {
             for (int j = -k; j <= k; ++j) {             // y axis
                 for (int i = -h; i <= h; ++i) {         // x axis
                     if (y - j >= 0 && y - j < img.rows && x - i >= 0 && x - i < img.cols) {
-                        value += img.at<uchar>(y - j, x - i) * filter[j + k][i + h];
+                        value += double(img.at<uchar>(y - j, x - i)) * filter[j + k][i + h];
                     }
                 }
             }
-
-            result[y][x] = (uchar) min(max(cvRound(value), 0), 255);
+            result[y][x] = value;
         }
     }
     return result;
